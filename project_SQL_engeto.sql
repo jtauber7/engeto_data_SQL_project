@@ -12,20 +12,20 @@ LEFT JOIN (
 LEFT JOIN (
 	select e.country,  e2.GDP, e3.gini, e4.u5
 	FROM economies e 
- 	left join ( select country, year, GDP 
+ 	LEFT JOIN ( select country, year, GDP 
  		from economies
  		where GDP is not NULL group by country ) e2 on e.country = e2.country
- 	left join ( select country, year, gini
+ 	LEFT JOIN ( select country, year, gini
  		from economies
  		where gini is not NULL group by country ) e3 on e.country = e3.country
- 	left join ( select country, year,mortaliy_under5 as u5
+ 	LEFT JOIN ( select country, year,mortaliy_under5 as u5
  		from economies
 		where mortaliy_under5 is not NULL group by country ) e4 on e.country = e4.country
-	where e.year > "2015" 
-	group by country 
-	order by e.country) e on e.country = c.country or e.country = lt.country
-where lt.province is NULL 
-order by lt.country 
+	WHERE e.year > "2015" 
+	GROUP BY country 
+	ORDER BY e.country) e on e.country = c.country or e.country = lt.country
+WHERE lt.province is NULL 
+ORDER BY lt.country 
 	;
 
 
@@ -39,9 +39,9 @@ SELECT date, city  , sum(r1.rain_hours) as rain_hours , max(wind) as max_wind , 
 			CASE when rain > 0 then 3 else 0 end as rain_hours
 		FROM weather w 
 		) r1
-	where date >= "2020-01-01"
-	group by date, city
-	order by city, `date`
+	WHERE date >= "2020-01-01"
+	GROUP BY date, city
+	ORDER BY city, `date`
 ;
 
 -- alternativa s JOIN - asi o trochu pomalejší 	
