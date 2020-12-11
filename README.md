@@ -95,6 +95,8 @@ Tvoření tabulek:
 4. Life expectancies - 2 varianty řešení, zvolena bez JOIN - cca 10x rychlejší
 5. Propojení všech tabulek a vytvoření nových sloupců finální tabulky
 
+Final Table:
+55670 row(s) updated - 10m 43s
 
 
 
